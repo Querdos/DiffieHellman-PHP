@@ -14,6 +14,8 @@ class DiffieHellman
     const PREDEFINED_6144 = 3;
     const PREDEFINED_8192 = 4;
 
+    const PRIVATE_KEY_LENGTH = 1024;
+
     /**
      * @var \GMP
      */
@@ -97,9 +99,17 @@ class DiffieHellman
         } else {
             throw new \Exception("Invalid values for the modulus and the base");
         }
+    }
 
-        // public and private key generation
+    /**
+     * Initialize the DH process by generating the public and private key
+     */
+    public function init()
+    {
+        // generate private key
         $this->generate_private_key();
+
+        // compute public key
         $this->compute_public();
     }
 
