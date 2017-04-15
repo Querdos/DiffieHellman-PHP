@@ -52,7 +52,7 @@ class DiffieHellman
      *
      * @throws \Exception
      */
-    public function __construct($modulus = null, $base = null, $predefined = -1)
+    public function __construct($predefined = null, $modulus = null, $base = null)
     {
         if (null === $modulus && null === $base) {
             switch ($predefined) {
@@ -86,7 +86,7 @@ class DiffieHellman
                         $this->base
                     ) = dh_predefined_8192();
                     break;
-                case -1:
+                case null:
                     list(
                         $this->modulus,
                         $this->base
