@@ -91,9 +91,15 @@ class DiffieHellman
                     ) = dh_predefined_1536();
                     break;
                 default:
-                    throw new \Exception("Invalid value for predefined (value=`$predefined`)");
+                    throw new \InvalidArgumentException("Invalid value for predefined (value=`$predefined`)");
             }
         } else if (null !== $modulus && null !== $base) {
+            if (!($modulus instanceof \GMP)) {
+                throw new \InvalidArgumentException("Modulus must be an instance of GMP");
+            } else if (!($base instanceof \GMP)) {
+                throw new \InvalidArgumentException("Base must be an instance of GMP");
+            }
+
             $this->modulus = $modulus;
             $this->base    = $base;
         } else {
@@ -119,7 +125,7 @@ class DiffieHellman
     public function generate_private_key()
     {
         // generating private key
-        $this->private = gmp_random_bits(1024);
+        $this->private = gmp_random_bits(self::PRIVATE_KEY_LENGTH);
     }
 
     /**
@@ -135,9 +141,13 @@ class DiffieHellman
      *
      * @param \GMP $public
      */
-    public function compute_secret(\GMP $public)
+    public function compute_secret(\GMP $public = null)
     {
-        $this->secret = gmp_powm($public, $this->private, $this->modulus);
+        if (null !== $public) {
+            $this->secret = gmp_powm($public, $this->private, $this->modulus);
+        } else {
+            $this->secret = gmp_powm($this->public, $this->private, $this->modulus);
+        }
     }
     
     /**
