@@ -1,0 +1,22 @@
+{
+    "name": "querdos/php-dh",
+    "description": "A DiffieHellman implementation in PHP",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hamza ESSAYEGH",
+            "email": "hamza.essayegh@protonmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+          "Querdos": "src"
+        }
+    }
+}

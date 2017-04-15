@@ -1,5 +1,7 @@
 <?php
 
+namespace Querdos;
+
 require_once 'PredefinedValues.php';
 
 /**
