@@ -46,9 +46,9 @@ In order to compute the secret and according to the corresponding RFC, there is 
 <?php
 $dh = new DiffieHellman();                      // no value, 1536bits by default
 $dh = new DiffieHellman(self::PREDEFINED_1536); // 1536bits length
-$dh = new DiffieHellman(self::PREDEFINED_3072); // 3072bits
-$dh = new DiffieHellman(self::PREDEFINED_4096); // 4096bits
-$dh = new DiffieHellman(self::PREDEFINED_6144); // 6144bits
-$dh = new DiffieHellman(self::PREDEFINED_8192); // 8192bits
+$dh = new DiffieHellman(self::PREDEFINED_3072); // 3072bits length 
+$dh = new DiffieHellman(self::PREDEFINED_4096); // 4096bits length
+$dh = new DiffieHellman(self::PREDEFINED_6144); // 6144bits length
+$dh = new DiffieHellman(self::PREDEFINED_8192); // 8192bits length
 ```
 
