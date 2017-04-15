@@ -2,7 +2,6 @@
     "name": "querdos/php-dh",
     "description": "A DiffieHellman implementation in PHP",
     "type": "library",
-    "minimum-stability": "dev",
     "require-dev": {
         "phpunit/phpunit": "5.7"
     },
