@@ -15,7 +15,7 @@
     "require": {},
     "autoload": {
         "psr-0": {
-          "Querdos": "src"
+          "Querdos\\": "src"
         }
     }
 }
