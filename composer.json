@@ -12,7 +12,6 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "5.7.9"
     },
     "autoload": {
         "psr-4": {
