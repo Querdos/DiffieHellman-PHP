@@ -1,8 +1,11 @@
 <?php
-use PHPUnit\Framework\TestCase;
 
-require_once '../lib/DiffieHellman.php';
-require_once '../lib/PredefinedValues.php';
+
+require_once '../src/DiffieHellman.php';
+require_once '../src/PredefinedValues.php';
+
+use PHPUnit\Framework\TestCase;
+use Querdos\DiffieHellman;
 
 /**
  * Created by Hamza ESSAYEGH
@@ -15,22 +18,22 @@ class DiffieHellmanTest extends TestCase
     public function testSecret()
     {
         $this->expectException(\Exception::class);
-        new DiffieHellman(0);
+        new DiffieHellman(null, null, 0);
 
         $this->expectException(InvalidArgumentException::class);
-        new DiffieHellman(gmp_init(1), 0);
+        new DiffieHellman(null, gmp_init(1), 0);
 
         $this->expectException(InvalidArgumentException::class);
-        new DiffieHellman(null, null, null);
+        new DiffieHellman(null, null, null, null);
 
         $this->expectException(Exception::class);
-        new DiffieHellman(gmp_init("1"), null);
+        new DiffieHellman(null, gmp_init("1"), null);
 
         $this->expectException(Exception::class);
-        new DiffieHellman(-1, null);
+        new DiffieHellman(null, -1, null);
 
-        $dh_alice = new DiffieHellman();
-        $dh_bob   = new DiffieHellman($dh_alice->getModulus(), $dh_alice->getBase());
+        $dh_alice = new DiffieHellman(null);
+        $dh_bob   = new DiffieHellman(null, $dh_alice->getModulus(), $dh_alice->getBase());
 
         $this->assertNotNull($dh_alice->getModulus(), "Modulus null for Alice");
         $this->assertNotNull($dh_alice->getBase(), "Base null for Alice");
