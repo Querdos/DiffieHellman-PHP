@@ -1,4 +1,6 @@
 # DiffieHellman-PHP
+[![Build Status](https://travis-ci.org/Querdos/DiffieHellman-PHP.svg?branch=master)](https://travis-ci.org/Querdos/DiffieHellman-PHP)  
+
 A Diffie Helmann implementation in PHP written by Hamza ESSAYEGH
 
 ## Installation
