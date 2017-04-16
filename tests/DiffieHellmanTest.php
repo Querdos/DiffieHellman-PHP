@@ -1,11 +1,8 @@
 <?php
 
-
-require_once '../src/DiffieHellman.php';
-require_once '../src/PredefinedValues.php';
+namespace Querdos;
 
 use PHPUnit\Framework\TestCase;
-use Querdos\DiffieHellman;
 
 /**
  * Created by Hamza ESSAYEGH
@@ -20,16 +17,16 @@ class DiffieHellmanTest extends TestCase
         $this->expectException(\Exception::class);
         new DiffieHellman(null, null, 0);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         new DiffieHellman(null, gmp_init(1), 0);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         new DiffieHellman(null, null, null, null);
 
-        $this->expectException(Exception::class);
+        $this->expectException(\Exception::class);
         new DiffieHellman(null, gmp_init("1"), null);
 
-        $this->expectException(Exception::class);
+        $this->expectException(\Exception::class);
         new DiffieHellman(null, -1, null);
 
         $dh_alice = new DiffieHellman(null);
